@@ -3,10 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
 </head>
 <body>
-	trang chủ của user
+    <h1>Trang chủ của user</h1>
+    
+    <form action="home" method="get">
+        <button type="submit" name="action" value="login">Login</button>
+        <button type="submit" name="action" value="signup">Sign Up</button>
+    </form>
 </body>
 </html>
