@@ -1,5 +1,0 @@
-com\webapp3rdyear\controller\web\HomeController.class
-com\webapp3rdyear\controller\web\LoginController.class
-com\webapp3rdyear\configs\DBConnectMySQL.class
-com\webapp3rdyear\model\UserModel.class
-com\webapp3rdyear\controller\web\SignupController.class
