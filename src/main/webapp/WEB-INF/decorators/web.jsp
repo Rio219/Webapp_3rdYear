@@ -9,7 +9,7 @@
 <link
 	href="<c:url value='/template/web/bootstrap/css/bootstrap.min.css' />"
 	rel="stylesheet" type="text/css" media="all" />
-<link href="<c:url value='/template/css/style.css' />" rel="stylesheet"
+<link href="<c:url value='/template/web/web.css' />" rel="stylesheet"
 	type="text/css" media="all" />
 
 <script type="text/javascript"
