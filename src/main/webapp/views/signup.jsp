@@ -9,7 +9,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="img-container">
-						<img src="template/login/images/undraw_file_sync_ot38.svg"
+						<img src="template/login/images/Image_Login.png"
 							alt="Image" class="img-fluid">
 					</div>
 				</div>
