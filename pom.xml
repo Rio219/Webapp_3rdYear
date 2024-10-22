@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -10,10 +11,12 @@
 	<properties>
 		<java.version>22</java.version>
 		<jakarta.version>10.0.0</jakarta.version>
-		<mysql-connector.version>8.0.33</mysql-connector.version>
-		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-		<jstl.version>2.0.0</jstl.version>
+		<mysql-connector.version>8.3.0</mysql-connector.version>
+		<maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+		<jstl.version>3.0.1</jstl.version>
+		<jwt.version>4.4.0</jwt.version>
+		<hibernate.version>6.4.4.Final</hibernate.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -34,7 +37,26 @@
 			<version>${mysql-connector.version}</version>
 		</dependency>
 
-		<!-- JSP and JSTL -->
+		<!-- Servlet API -->
+		<!--
+		https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>6.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- JSP API -->
+		<dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+			<version>3.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JSTL -->
 		<dependency>
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -45,52 +67,40 @@
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/opensymphony/sitemesh -->
-		<dependency>
-			<groupId>opensymphony</groupId>
-			<artifactId>sitemesh</artifactId>
-			<version>2.4.2</version>
-		</dependency>
 
+		<!-- Sitemesh -->
 		<dependency>
 			<groupId>org.sitemesh</groupId>
 			<artifactId>sitemesh</artifactId>
 			<version>3.2.1</version>
 		</dependency>
 
-		<!--
-		https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
-		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-			<version>6.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<!--
-		https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
-		<dependency>
-			<groupId>jakarta.servlet.jsp</groupId>
-			<artifactId>jakarta.servlet.jsp-api</artifactId>
-			<version>4.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!--
-		https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+		<!-- JPA and Hibernate -->
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>3.2.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.6.0.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 
-	</dependencies>
+		<!-- JWT -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
 
+		<!-- Bootstrap (WebJars) -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.3.3</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
