@@ -89,7 +89,7 @@
 	<script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
 
 	<!-- Thêm modal xác nhận -->
-	<div class="modal fade" id="confirmSignupModal" tabindex="-1" role="dialog" aria-labelledby="confirmSignupModalLabel" aria-hidden="true">
+	<div class="modal fade" id="confirmSignupModal" tabindex="-1" role="dialog" aria-labelledby="confirmSignupModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">

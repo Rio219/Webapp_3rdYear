@@ -2,15 +2,15 @@ package com.webapp3rdyear.controller.web;
 
 import java.io.IOException;
 
+import com.webapp3rdyear.entity.UserModel;
+import com.webapp3rdyear.service.LoginService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import com.webapp3rdyear.entity.UserModel;
-import com.webapp3rdyear.service.LoginService;
 
 @WebServlet(urlPatterns = { "/login", "/logout" })
 public class LoginController extends HttpServlet {
@@ -31,14 +31,12 @@ public class LoginController extends HttpServlet {
 			return;
 		}
 		
-		// Kiểm tra nếu user đã login
 		HttpSession session = req.getSession(false);
 		if (session != null && session.getAttribute("userModel") != null) {
 			resp.sendRedirect(req.getContextPath() + "/home");
 			return;
 		}
 		
-		// Hiển thị form login
 		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 	}
 
@@ -48,11 +46,9 @@ public class LoginController extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		try {
-			// Lấy thông tin đăng nhập
 			String loginName = req.getParameter("loginName");
 			String password = req.getParameter("password");
 			
-			// Kiểm tra null hoặc rỗng
 			if (loginName == null || loginName.trim().isEmpty() ||
 				password == null || password.trim().isEmpty()) {
 				
@@ -61,15 +57,12 @@ public class LoginController extends HttpServlet {
 				return;
 			}
 			
-			// Kiểm tra đăng nhập
 			UserModel user = loginService.checkLogin(loginName, password);
 			
-			if (user != null) {
-				// Tạo session
+			if (user != null) {				
 				HttpSession session = req.getSession(true);
-				session.setAttribute("userModel", user);
+				session.setAttribute("user", user);
 				
-				// Chuyển hướng theo role
 				switch (user.getType()) {
 					case 1: // User thường
 						resp.sendRedirect(req.getContextPath() + "/home");
