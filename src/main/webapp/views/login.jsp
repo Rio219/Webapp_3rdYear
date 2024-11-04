@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <body>
 	<div class="content">
@@ -19,37 +19,71 @@
 							Đăng nhập <strong>GARDENIA</strong>
 						</h3>
 						<p class="mb-4">Thêm cây xanh, thêm sự sống</p>
-						<form action="#" method="post">
+						
+						<!-- Hiển thị thông báo lỗi -->
+						<c:if test="${not empty error}">
+							<div class="alert alert-danger" role="alert">
+								${error}
+							</div>
+						</c:if>
+						
+						<!-- Hiển thị thông báo thành công -->
+						<c:if test="${not empty param.message}">
+							<div class="alert alert-success" role="alert">
+								<c:choose>
+									<c:when test="${param.message == 'signup_success'}">
+										Đăng ký thành công! Vui lòng đăng nhập.
+									</c:when>
+									<c:when test="${param.message == 'logout_success'}">
+										Đăng xuất thành công!
+									</c:when>
+								</c:choose>
+							</div>
+						</c:if>
+						
+						<form action="login" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" id="loginName"
-									placeholder="Tên đăng nhập" required>
+								<input type="text" class="form-control" name="loginName"
+									id="loginName" placeholder="Tên đăng nhập" required>
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="password"
-									placeholder="Mật khẩu" required>
+								<input type="password" class="form-control" name="password"
+									id="password" placeholder="Mật khẩu" required>
 							</div>
 							<div class="form-group form-check">
-								<input type="checkbox" class="form-check-input" id="rememberMe">
-								<label class="form-check-label" for="rememberMe">Ghi nhớ
-									đăng nhập</label>
+								<input type="checkbox" class="form-check-input" 
+									name="rememberMe" id="rememberMe">
+								<label class="form-check-label" for="rememberMe">
+									Ghi nhớ đăng nhập
+								</label>
 							</div>
-							<button type="submit" class="btn btn-primary btn-block">Đăng
-								nhập</button>
+							<button type="submit" class="btn btn-primary btn-block">
+								Đăng nhập
+							</button>
 						</form>
+						
 						<p class="text-center mt-3">
-							<a href="#">Quên mật khẩu?</a> | <a href="signup.jsp">Đăng ký
-								tài khoản mới</a>
+							<a href="forgot-password">Quên mật khẩu?</a> | 
+							<a href="signup">Đăng ký tài khoản mới</a>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
+	
+	<!-- JavaScript validation -->
+	<script>
+	document.querySelector('form').addEventListener('submit', function(e) {
+		var loginName = document.getElementById('loginName').value.trim();
+		var password = document.getElementById('password').value.trim();
+		
+		if (loginName === '' || password === '') {
+			e.preventDefault();
+			alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
+			return false;
+		}
+	});
+	</script>
 </body>
 </html>

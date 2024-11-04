@@ -17,5 +17,30 @@ public class ItemImageModel {
     @Column(name = "Image", length = 500)
     private String image;
 
-    // Constructors, getters, and setters
+	public int getItemImageId() {
+		return itemImageId;
+	}
+
+	public void setItemImageId(int itemImageId) {
+		this.itemImageId = itemImageId;
+	}
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+    
+    
 }

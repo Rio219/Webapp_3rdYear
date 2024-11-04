@@ -16,7 +16,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "ORDER")
+@Table(name = "ORDERS")
 public class OrderModel {
 
     @Id
@@ -68,5 +68,125 @@ public class OrderModel {
     @OneToMany(mappedBy = "orderId", cascade = CascadeType.ALL)
 	private Set<DetailModel> detail = new HashSet<>();
 
-    // Constructors, getters, and setters
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public int getTransportFee() {
+		return transportFee;
+	}
+
+	public void setTransportFee(int transportFee) {
+		this.transportFee = transportFee;
+	}
+
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+	public int getTotalMoney() {
+		return totalMoney;
+	}
+
+	public void setTotalMoney(int totalMoney) {
+		this.totalMoney = totalMoney;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public Date getDeliveryTime() {
+		return deliveryTime;
+	}
+
+	public void setDeliveryTime(Date deliveryTime) {
+		this.deliveryTime = deliveryTime;
+	}
+
+	public int getCustomConfirmation() {
+		return customConfirmation;
+	}
+
+	public void setCustomConfirmation(int customConfirmation) {
+		this.customConfirmation = customConfirmation;
+	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	public int getSellerId() {
+		return sellerId;
+	}
+
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
+	}
+
+	public int getShipperId() {
+		return shipperId;
+	}
+
+	public void setShipperId(int shipperId) {
+		this.shipperId = shipperId;
+	}
+
+	public Set<DetailModel> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(Set<DetailModel> detail) {
+		this.detail = detail;
+	}
+
+    
 }

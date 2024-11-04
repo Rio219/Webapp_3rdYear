@@ -33,5 +33,41 @@ public class CartModel implements Serializable{
     @Column(name = "Quantity")
     private int quantity;
 
+	public int getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+
+	public UserModel getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(UserModel customerId) {
+		this.customerId = customerId;
+	}
+
+	public ItemModel getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(ItemModel itemId) {
+		this.itemId = itemId;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
     // Constructors, getters, and setters
 }

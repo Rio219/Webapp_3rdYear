@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 
@@ -63,13 +64,15 @@ public class UserModel {
 	@Column(name = "Email", length = 100)
 	private String email;
 
-	/*
-	 * @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) private
-	 * Set<VoucherCustomerModel> voucherUsers = new HashSet<>();
-	 * 
-	 * @OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL) private
-	 * Set<CartModel> cart = new HashSet<>();
-	 */
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private Set<VoucherCustomerModel> voucherUsers = new HashSet<>();
+
+	@OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL)
+	private Set<CartModel> cart = new HashSet<>();
+
+	@OneToOne(mappedBy = "user")
+	private AccountModel account;
+
 	// Constructors
 	public UserModel() {
 		// TODO Auto-generated constructor stub
@@ -184,5 +187,13 @@ public class UserModel {
 	 * public void setVoucherUsers(Set<VoucherCustomerModel> voucherUsers) {
 	 * this.voucherUsers = voucherUsers; }
 	 */
+
+	public AccountModel getAccount() {
+		return account;
+	}
+
+	public void setAccount(AccountModel account) {
+		this.account = account;
+	}
 
 }

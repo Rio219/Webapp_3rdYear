@@ -17,5 +17,28 @@ public class CategoryModel {
     @Column(name = "ParentCategoryID")
     private int parentCategoryId;
 
-    // Constructors, getters, and setters
+
+    public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public int getParentCategoryId() {
+		return parentCategoryId;
+	}
+
+	public void setParentCategoryId(int parentCategoryId) {
+		this.parentCategoryId = parentCategoryId;
+	}
 }
