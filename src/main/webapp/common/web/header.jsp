@@ -1,4 +1,16 @@
-<!-- Navigation-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
+<%@ page import="com.webapp3rdyear.entity.UserModel"%>
+
+<style>
+.user-avatar, .dropdown-avatar {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container px-4 px-lg-5">
 		<a class="navbar-brand" href="#!">Start Bootstrap</a>
@@ -23,14 +35,56 @@
 						<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
 					</ul></li>
 			</ul>
-			<form class="d-flex">
-				<button class="btn btn-outline-dark" type="submit">
+			<div class="d-flex align-items-center">
+				<button class="btn btn-outline-dark me-3" type="submit">
 					<i class="bi-cart-fill me-1"></i> Cart <span
 						class="badge bg-dark text-white ms-1 rounded-pill">0</span>
 				</button>
-				<a class="btn btn-outline-primary ms-2" href="?action=login">Login</a>
-				<a class="btn btn-outline-success ms-2" href="?action=signup">Signup</a>
-			</form>
+				<%
+				UserModel user = (UserModel) session.getAttribute("user");
+				if (user != null) {
+				%>
+				<div class="dropdown">
+					<div class="avatar-dropdown" id="userDropdown"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<img
+							src="<%=user.getAvatar() != null ? user.getAvatar() : "template/web/defaultAvatar.jpg"%>"
+							alt="Avatar" class="user-avatar">
+					</div>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="userDropdown">
+						<div class="dropdown-header">
+							<div class="user-info">
+								<img
+									src="<%=user.getAvatar() != null ? user.getAvatar() : "template/web/defaultAvatar.jpg"%>"
+									alt="Avatar" class="dropdown-avatar">
+								<div class="user-details">
+									<span class="user-name"><%=user.getFirstName() + " " + user.getLastName()%></span>
+								</div>
+							</div>
+						</div>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="profile"> <i
+							class="fas fa-user"></i> Thông tin cá nhân
+						</a> <a class="dropdown-item" href="profile/edit"> <i
+							class="fas fa-edit"></i> Chỉnh sửa thông tin
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="logout"> <i
+							class="fas fa-sign-out-alt"></i> Đăng xuất
+						</a>
+					</div>
+				</div>
+				<%
+				} else {
+				%>
+				<a href="login" class="btn btn-outline-primary me-2">Login</a> <a
+					href="signup" class="btn btn-primary">Signup</a>
+				<%
+				}
+				%>
+
+			</div>
 		</div>
 	</div>
 </nav>

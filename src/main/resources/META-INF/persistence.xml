@@ -8,7 +8,6 @@
 	<persistence-unit name="webapp_3rdyear"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
 		<properties>
 			<property name="hibernate.connection.url"
 				value="jdbc:mysql://localhost:3306/webapp_3rdyear" />
@@ -21,7 +20,7 @@
 				value="class" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>

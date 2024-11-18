@@ -48,5 +48,86 @@ public class ItemModel {
 
     @OneToMany(mappedBy = "itemId", cascade = CascadeType.ALL)
 	private Set<DetailModel> detail = new HashSet<>();
-    // Constructors, getters, and setters
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getColorCode() {
+		return colorCode;
+	}
+
+	public void setColorCode(String colorCode) {
+		this.colorCode = colorCode;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public BigDecimal getOriginalPrice() {
+		return originalPrice;
+	}
+
+	public void setOriginalPrice(BigDecimal originalPrice) {
+		this.originalPrice = originalPrice;
+	}
+
+	public int getPromotionPrice() {
+		return promotionPrice;
+	}
+
+	public void setPromotionPrice(int promotionPrice) {
+		this.promotionPrice = promotionPrice;
+	}
+
+	public Set<CartModel> getCart() {
+		return cart;
+	}
+
+	public void setCart(Set<CartModel> cart) {
+		this.cart = cart;
+	}
+
+	public Set<DetailModel> getDetail() {
+		return detail;
+	}
+
+	public void setDetail(Set<DetailModel> detail) {
+		this.detail = detail;
+	}
+
+
 }

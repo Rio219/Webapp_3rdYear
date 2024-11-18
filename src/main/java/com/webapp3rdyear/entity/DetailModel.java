@@ -36,5 +36,69 @@ public class DetailModel {
     @Column(name = "Rating")
     private int rating;
 
-    // Constructors, getters, and setters
+	public long getDetailId() {
+		return detailId;
+	}
+
+	public void setDetailId(long detailId) {
+		this.detailId = detailId;
+	}
+
+	public ItemModel getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(ItemModel itemId) {
+		this.itemId = itemId;
+	}
+
+	public OrderModel getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(OrderModel orderId) {
+		this.orderId = orderId;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getEvaluationDate() {
+		return evaluationDate;
+	}
+
+	public void setEvaluationDate(Date evaluationDate) {
+		this.evaluationDate = evaluationDate;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+    
 }

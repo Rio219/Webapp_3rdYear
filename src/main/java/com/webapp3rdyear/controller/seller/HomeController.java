@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/Trang-Chu"})
+@WebServlet(urlPatterns = {"/Seller"})
 public class HomeController extends HttpServlet {
 
 	/**

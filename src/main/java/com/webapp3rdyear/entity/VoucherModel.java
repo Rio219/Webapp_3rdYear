@@ -47,8 +47,6 @@ public class VoucherModel {
 	@OneToMany(mappedBy = "voucher", cascade = CascadeType.ALL)
 	private Set<VoucherCustomerModel> voucherUsers = new HashSet<>();
 
-	// Constructors, getters, and setters
-
 	public VoucherModel() {
 	}
 
