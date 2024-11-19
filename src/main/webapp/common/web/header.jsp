@@ -64,10 +64,8 @@
 							</div>
 						</div>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="profile"> <i
-							class="fas fa-user"></i> Thông tin cá nhân
-						</a> <a class="dropdown-item" href="profile/edit"> <i
-							class="fas fa-edit"></i> Chỉnh sửa thông tin
+						<a class="dropdown-item" href="Profile"> <i
+							class="fas fa-user"></i> Thông Tin Cá Nhân
 						</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="logout"> <i
