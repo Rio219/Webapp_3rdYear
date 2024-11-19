@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ include file="/commons/taglibs.jsp"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +10,7 @@
     <title>UX/UI</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" type="text/css" href="template/web/web.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -24,7 +21,7 @@
             <div class="top">
 
                 <div class="logo">
-                    <h2>B<span class="danger">lOOM</span></h2>
+                    <h2>C<span class="danger">BABAR</span></h2>
                 </div>
                 <div class="close" id="close_btn">
                     <span class="material-symbols-sharp">close</span>
@@ -32,104 +29,89 @@
             </div>
             <!-- end top -->
 
-            <div class="sidebar">
-                <a href="#">
-                    <span class="material-symbols-sharp">home_and_garden</span>
-                    <h3>Home</h3>
-                </a>
+            
 
-                <a href="#" class="active">
-                    <span class="material-symbols-sharp">face_2</span>
-                    <h3>Accounts</h3>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-sharp">yard</span>
-                    <h3>Vouchers</h3>
-                    <span class="msg_count">14</span>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-sharp">local_florist</span>
-                    <h3>Products</h3>
-                </a>
-                <a href="#">
-                    <span class="material-symbols-sharp">receipt_long</span>
-                    <h3>Orders</h3>
-                </a>
-                <!-- <a href="#">
-                    <span class="material-symbols-sharp">emoji_nature</span>
-                    <h3>Users</h3>
-                </a> -->
-                <a href="#">
-                    <span class="material-symbols-sharp">insights</span>
-                    <h3>KPI</h3>
-                </a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle">
-                        <span class="material-symbols-sharp">emoji_nature</span>
-                        <h3>Users</h3>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="#">User List</a>
-                        <a href="#">Add User</a>
-                        <a href="#">User Roles</a>
-                    </div>
-                </div>
-                
-                <a href="#">
-                    <span class="material-symbols-sharp">logout</span>
-                    <h3>Logout</h3>
-                </a>
-                
         </aside>
         <!-- aside section end -->
 
         <!-- main section start -->
         <main>
-            <div class="info-page">
-                <h1>Account management</h1>
-                <div class="address">
-                    <!-- <input type="date"> -->
-                    <th>Home/Accounts</th>
-                </div>
-                <div class="btn">
-                    <i class="fa-solid fa-pencil"></i>
-                    <button class="btn-add">New Account</button>
-                </div>
+            <h1>Dashboard</h1>
+            <div class="date">
+                <input type="date">
             </div>
 
-            <!-- start accounts_table -->
-            <div class="operation-management">
-                <div class="selection">
-                    <select name="numbers" id="numbers">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                    <p>entries per page</p>
+
+            <div class="insights">
+
+                <!--start selling-->
+                <div class="sales">
+                    <span class="material-symbols-sharp">trending_up</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Sales</h3>
+                            <h1>$25,023</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle r="30" cy="40" cx="40"></circle>
+                            </svg>
+                            <div class="number">80%</div>
+                        </div>
+                    </div>
+                    <small>Last 24 Hours</small>
                 </div>
-                <div class="group">
-                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon-search">
-                    <g>
-                    <path
-                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
-                    ></path>
-                    </g>
-                </svg>
-                <input class="input-search" type="search" placeholder="Search" />
+                <!--end selling-->
+
+                <!--start expenses-->
+                <div class="expenses">
+                    <span class="material-symbols-sharp">local_mall</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Expenses</h3>
+                            <h1>$25,023</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle r="30" cy="40" cx="40"></circle>
+                            </svg>
+                            <div class="number">80%</div>
+                        </div>
+                    </div>
+                    <small>Last 24 Hours</small>
                 </div>
+                <!--end expenses-->
+
+                <!--start expenses-->
+                <div class="income">
+                    <span class="material-symbols-sharp">stacked_line_chart</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Incomes</h3>
+                            <h1>$25,023</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle r="30" cy="40" cx="40"></circle>
+                            </svg>
+                            <div class="number">80%</div>
+                        </div>
+                    </div>
+                    <small>Last 24 Hours</small>
+                </div>
+                <!--end expenses-->
             </div>
-            <div class="accounts_table">
+            <!-- end insights-->
+            <!-- start recent oredr -->
+            <div class="recent_order">
+                <h1>Recent Orders</h1>
                 <table>
                     <thread>
                         <tr>
-                            <th>Customer ID</th>
-                            <th>Account name</th>
-                            <th>Password</th>
-                            <th>Update</th>
-                            <th>Thao tác</th>
+                            <th>Product Name</th>
+                            <th>Product Number</th>
+                            <th>Payments</th>
+                            <th>Status</th>
                         </tr>
                     </thread>
                     <tbody>
@@ -139,10 +121,7 @@
                             <td>456</td>
                             <td>Due</td>
                             <td class="warning">Pending</td>
-                            <td class="ope-btn">
-                                <button class="btn-edit"><i class="fa-solid fa-pencil"></i></button>
-                                <button class="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
-                            </td>
+                            <td class="primary">Details</td>
                         </tr>
 
                         <tr>
@@ -152,6 +131,7 @@
                             <td class="warning">Pending</td>
                             <td class="primary">Details</td>
                         </tr>
+
                         <tr>
                             <td>Mini USB</td>
                             <td>456</td>
@@ -196,10 +176,13 @@
                         <small class="text-muted"></small>
                     </div>
                     <div class="profile-photo">
-                        <img src="images/profile-1.jpg" alt="">
+                        <img src="images/profile-1.jpg" alt="" ></div>
                     </div>
                 </div>
+
             </div>
+            <!--end top-->
+            <!-- start recent updates-->
             <div class="recent_updates">
                 <h2>Recent Update</h2>
                 <div class="updates">
@@ -208,7 +191,7 @@
                             <img src="images/profile-2.jpg" alt="">
                         </div>
                         <div class="message">
-                            <p><b>Barbar</b> Recived his order</p>
+                        <p><b>Barbar</b> Recived his order</p>
                         </div>
                     </div>
                     <div class="update">
@@ -216,7 +199,7 @@
                             <img src="images/profile-2.jpg" alt="">
                         </div>
                         <div class="message">
-                            <p><b>Barbar</b> Recived his order</p>
+                        <p><b>Barbar</b> Recived his order</p>
                         </div>
                     </div>
                     <div class="update">
@@ -224,11 +207,13 @@
                             <img src="images/profile-2.jpg" alt="">
                         </div>
                         <div class="message">
-                            <p><b>Barbar</b> Recived his order</p>
+                        <p><b>Barbar</b> Recived his order</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- end recent update -->
+            <!-- start sale analytic-->
             <div class="sales_analytics">
                 <h2>Sales Analytics</h2>
                 <div class="item onlion">
@@ -273,28 +258,21 @@
                     </div>
                 </div>
             </div>
+            <!-- end sale analytic-->
             <div class="item add_products">
                 <div>
                     <span class="material-symbols-sharp">add</span>
                 </div>
             </div>
         </div>
-        <!--end top-->
-        <!-- start recent updates-->
-
-        <!-- end recent update -->
-        <!-- start sale analytic-->
-
-        <!-- end sale analytic-->
-
+        
     </div>
-    </div>
+    
 
 
 
 
-
-    <script src="/template/web/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 
-</html>\
+</html>
