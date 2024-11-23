@@ -24,7 +24,7 @@ public class HomeController extends HttpServlet {
 		AccountsDAO dao =  new AccountsDAO();
 		List<Accounts> list = dao.getAllAccounts();
 		request.setAttribute("listS", list);
-		request.getRequestDispatcher("/view/admin/home.jsp").
+		request.getRequestDispatcher("/views/admin/home.jsp").
 				forward(request, response);
 	}
 
