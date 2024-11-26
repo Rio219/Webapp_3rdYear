@@ -9,12 +9,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/Admin"})
+@WebServlet(urlPatterns = {"/admin/*"})
 public class HomeController extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -23,7 +20,6 @@ public class HomeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		RequestDispatcher rd= req.getRequestDispatcher("/views/admin/home.jsp");
 		rd.forward(req, resp);
-		super.doGet(req, resp);
 	}
 
 	@Override
