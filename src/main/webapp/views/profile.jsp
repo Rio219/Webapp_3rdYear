@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h2>Thông tin cá nhân</h2>
-        <form id="profileForm">
+        <form id="profileForm" action="profile" method="post">
             <div class="user-info">
                 <% 
                     UserModel user = (UserModel) session.getAttribute("user");
@@ -44,8 +44,12 @@
                     } 
                 %>
             </div>
+            
+            <p>
             <button type="button" class="btn btn-primary" id="editButton">Chỉnh sửa</button>
             <button type="button" class="btn btn-success" id="saveButton" style="display:none;">Lưu</button>
+            </p>
+            
         </form>
     </div>
 
@@ -87,7 +91,7 @@
             $("#saveButton").click(function() {
                 // Hiện modal xác nhận
                 $("#confirmModal").modal('show');
-            });
+            });	
 
             $("#confirmEdit").click(function() {
                 // Gửi form sau khi xác nhận

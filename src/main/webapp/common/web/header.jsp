@@ -10,10 +10,15 @@
 	object-fit: cover;
 	border-radius: 50%;
 }
+
+.navbar {
+    padding: 1.2rem 1rem;
+    font-size: 1.2rem;
+}
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container px-4 px-lg-5">
-		<a class="navbar-brand" href="#!">Start Bootstrap</a>
+		<a class="navbar-brand" href="${pageContext.request.contextPath}"><strong>GARDENIA</strong></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,10 +41,14 @@
 					</ul></li>
 			</ul>
 			<div class="d-flex align-items-center">
-				<button class="btn btn-outline-dark me-3" type="submit">
-					<i class="bi-cart-fill me-1"></i> Cart <span
-						class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+				<button class="btn btn-outline-dark me-3" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="bi-cart-fill me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
 				</button>
+				<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
+					<li><a class="dropdown-item" href="cart">View Cart</a></li>
+					<li><hr class="dropdown-divider" /></li>
+					<li><a class="dropdown-item" href="checkout">Checkout</a></li>
+				</ul>
 				<%
 				UserModel user = (UserModel) session.getAttribute("user");
 				if (user != null) {
@@ -64,7 +73,7 @@
 							</div>
 						</div>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="Profile"> <i
+						<a class="dropdown-item" href="profile"> <i
 							class="fas fa-user"></i> Thông Tin Cá Nhân
 						</a>
 						<div class="dropdown-divider"></div>
@@ -81,7 +90,6 @@
 				<%
 				}
 				%>
-
 			</div>
 		</div>
 	</div>

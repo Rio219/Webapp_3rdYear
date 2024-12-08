@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/Profile" })
+@WebServlet(urlPatterns = {"/profile"})
 public class EditProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class EditProfileController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	    HttpSession session = req.getSession();
 	    UserModel user = (UserModel) session.getAttribute("user");
-
+	    System.out.print("1");
 	    if (user != null) {
 	        String fullName = req.getParameter("fullName");
 	        String email = req.getParameter("email");
@@ -46,10 +46,10 @@ public class EditProfileController extends HttpServlet {
 	        userService.updateUser(user);
 
 	        // Cập nhật lại thông tin trong session
-	        session.setAttribute("user", user);
-	        resp.sendRedirect("Profile"); // Chuyển hướng đến trang thông tin cá nhân
+	        session.setAttribute("user", user);	
+	        resp.sendRedirect(req.getContextPath() + "/profile");
 	    } else {
-	        resp.sendRedirect("login"); // Nếu không có người dùng, chuyển hướng đến trang đăng nhập
+	    	resp.sendRedirect(req.getContextPath() + "/login"); // Nếu không có người dùng, chuyển hướng đến trang đăng nhập
 	    }
 	}
 }
