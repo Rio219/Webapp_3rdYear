@@ -22,13 +22,11 @@ public class CartModel implements Serializable{
     @Column(name = "CartID")
     private int cartId;
     
-    @ManyToOne
     @JoinColumn(name = "CustomerID", nullable = false)
-    private UserModel customerId;
+    private int customerId;
     
-    @ManyToOne
     @JoinColumn(name = "ItemID", nullable = false)
-    private ItemModel itemId;
+    private int itemId;
 
     @Column(name = "Quantity")
     private int quantity;
@@ -41,19 +39,19 @@ public class CartModel implements Serializable{
 		this.cartId = cartId;
 	}
 
-	public UserModel getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(UserModel customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 
-	public ItemModel getItemId() {
+	public int getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(ItemModel itemId) {
+	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
 

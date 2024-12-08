@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.webapp3rdyear.configs.JPAConfig;
 import com.webapp3rdyear.entity.ProductModel;
+import com.webapp3rdyear.entity.UserModel;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -13,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = { "/home" })
 public class HomeController extends HttpServlet {
@@ -21,12 +23,13 @@ public class HomeController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * HttpSession session = request.getSession(true); if (session != null &&
-		 * session.getAttribute("user") != null) { UserModel user = (UserModel)
-		 * session.getAttribute("user");
-		 */
 
+		UserModel user = null;
+		
+		HttpSession session = request.getSession(true);
+		if (session != null && session.getAttribute("user") != null) {
+			user = (UserModel) session.getAttribute("user");
+		}
 		try {
 			EntityManager em = JPAConfig.getEntityManager();
 
@@ -50,10 +53,20 @@ public class HomeController extends HttpServlet {
 			Long totalProducts = countQuery.getSingleResult();
 			int totalPages = (int) Math.ceil((double) totalProducts / pageSize);
 
+	        long cartItemCount = 0;
+	        // Đếm số lượng sản phẩm trong giỏ hàng của người dùng
+            TypedQuery<Long> cartCountQuery = em.createQuery(
+                "SELECT COUNT(c) FROM CartModel c WHERE c.customerId = :userID", Long.class);
+            cartCountQuery.setParameter("userID", user.getUserId());
+            cartItemCount = cartCountQuery.getSingleResult().intValue();
+			System.out.print(cartItemCount);
+
 			// Gửi dữ liệu sang view
 			request.setAttribute("products", products);
 			request.setAttribute("currentPage", page);
+
 			request.setAttribute("totalPages", totalPages);
+			request.setAttribute("cartItemCount", cartItemCount);
 
 			em.close();
 		} catch (Exception e) {
@@ -61,6 +74,7 @@ public class HomeController extends HttpServlet {
 		}
 
 		// Chuyển tiếp đến view
+
 		request.getRequestDispatcher("/views/web/home.jsp").forward(request, response);
 
 	}
