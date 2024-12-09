@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
 			return;
 		}
 		
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(true);
 		if (session != null && session.getAttribute("userModel") != null) {
 			resp.sendRedirect(req.getContextPath() + "/home");
 			return;

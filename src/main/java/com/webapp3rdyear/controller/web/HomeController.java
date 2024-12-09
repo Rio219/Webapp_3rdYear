@@ -18,17 +18,32 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = { "/home" })
 public class HomeController extends HttpServlet {
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		UserModel user = null;
 		
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
 		if (session != null && session.getAttribute("user") != null) {
-			user = (UserModel) session.getAttribute("user");
+			UserModel user = (UserModel) session.getAttribute("user");
+			String sessionId = session.getId();
+			System.out.println("Session ID home: " + sessionId);
+			EntityManager em = JPAConfig.getEntityManager();
+
+	        long cartItemCount = 0;
+            TypedQuery<Long> cartCountQuery = em.createQuery(
+                "SELECT COUNT(c) FROM CartModel c WHERE c.customerId = :userID", Long.class);
+            cartCountQuery.setParameter("userID", user.getUserId());
+            cartItemCount = cartCountQuery.getSingleResult().intValue();
+			System.out.print(cartItemCount);
+			request.setAttribute("cartItemCount", cartItemCount);
+			em.close();
+
 		}
 		try {
 			EntityManager em = JPAConfig.getEntityManager();
@@ -53,21 +68,11 @@ public class HomeController extends HttpServlet {
 			Long totalProducts = countQuery.getSingleResult();
 			int totalPages = (int) Math.ceil((double) totalProducts / pageSize);
 
-	        long cartItemCount = 0;
-	        // Đếm số lượng sản phẩm trong giỏ hàng của người dùng
-            TypedQuery<Long> cartCountQuery = em.createQuery(
-                "SELECT COUNT(c) FROM CartModel c WHERE c.customerId = :userID", Long.class);
-            cartCountQuery.setParameter("userID", user.getUserId());
-            cartItemCount = cartCountQuery.getSingleResult().intValue();
-			System.out.print(cartItemCount);
-
 			// Gửi dữ liệu sang view
 			request.setAttribute("products", products);
 			request.setAttribute("currentPage", page);
 
 			request.setAttribute("totalPages", totalPages);
-			request.setAttribute("cartItemCount", cartItemCount);
-
 			em.close();
 		} catch (Exception e) {
 			e.printStackTrace();
