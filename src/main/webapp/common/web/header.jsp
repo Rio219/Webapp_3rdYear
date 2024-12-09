@@ -12,8 +12,8 @@
 }
 
 .navbar {
-    padding: 1.2rem 1rem;
-    font-size: 1.2rem;
+	padding: 1.2rem 1rem;
+	font-size: 1.2rem;
 }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,7 +42,8 @@
 			</ul>
 			<div class="d-flex align-items-center">
 				<a href="cart" class="btn btn-outline-dark me-3" type="button">
-					<i class="bi-cart-fill me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill">${cartItemCount}</span>
+					<i class="bi-cart-fill me-1"></i> Cart <span
+					class="badge bg-dark text-white ms-1 rounded-pill">${cartItemCount}</span>
 				</a>
 				<%
 				UserModel user = (UserModel) session.getAttribute("user");
@@ -70,6 +71,10 @@
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="profile"> <i
 							class="fas fa-user"></i> Thông Tin Cá Nhân
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="changepass"> <i
+							class="fas fa-user"></i> Đổi mật khẩu
 						</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="logout"> <i
