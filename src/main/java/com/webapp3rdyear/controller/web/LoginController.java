@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
 			return;
 		}
 		
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(true);
 		if (session != null && session.getAttribute("userModel") != null) {
 			resp.sendRedirect(req.getContextPath() + "/home");
 			return;
@@ -62,22 +62,16 @@ public class LoginController extends HttpServlet {
 			if (user != null) {				
 				HttpSession session = req.getSession(true);
 				session.setAttribute("user", user);
-				
-				switch (user.getType()) {
-					case 1: // User thường
-						resp.sendRedirect(req.getContextPath() + "/home");
-						break;
-					case 2: // Admin
-						resp.sendRedirect(req.getContextPath() + "/admin");
-						break;
-					case 3: // Seller
-						resp.sendRedirect(req.getContextPath() + "/seller");
-						break;
-					case 4: // Shipper
-						resp.sendRedirect(req.getContextPath() + "/shipper");
-						break;
-					default:
-						resp.sendRedirect(req.getContextPath() + "/home");
+				if (user.getType() == 1) { // User thường
+					resp.sendRedirect(req.getContextPath() + "/home");
+				} else if (user.getType() == 2) { // Admin
+					resp.sendRedirect(req.getContextPath() + "/admin");
+				} else if (user.getType() == 3) { // Seller
+					resp.sendRedirect(req.getContextPath() + "/seller");
+				} else if (user.getType() == 4) { // Shipper
+					resp.sendRedirect(req.getContextPath() + "/shipper");
+				} else {
+					resp.sendRedirect(req.getContextPath() + "/home");
 				}
 			} else {
 				req.setAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng");

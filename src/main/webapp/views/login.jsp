@@ -63,7 +63,7 @@
 						</form>
 						
 						<p class="text-center mt-3">
-							<a href="forgot-password">Quên mật khẩu?</a> | 
+							<a href="forgetPassword">Quên mật khẩu?</a> | 
 							<a href="signup">Đăng ký tài khoản mới</a>
 						</p>
 					</div>

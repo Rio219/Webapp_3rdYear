@@ -1,6 +1,5 @@
 package com.webapp3rdyear.entity;
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,7 +37,7 @@ public class ItemModel {
     private int stock;
 
     @Column(name = "OriginalPrice", precision = 10, scale = 3)
-    private BigDecimal originalPrice;
+    private double originalPrice;
 
     @Column(name = "PromotionPrice")
     private int promotionPrice;
@@ -97,11 +96,11 @@ public class ItemModel {
 		this.stock = stock;
 	}
 
-	public BigDecimal getOriginalPrice() {
+	public double getOriginalPrice() {
 		return originalPrice;
 	}
 
-	public void setOriginalPrice(BigDecimal originalPrice) {
+	public void setOriginalPrice(double originalPrice) {
 		this.originalPrice = originalPrice;
 	}
 

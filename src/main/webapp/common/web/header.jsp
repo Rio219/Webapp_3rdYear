@@ -10,10 +10,15 @@
 	object-fit: cover;
 	border-radius: 50%;
 }
+
+.navbar {
+	padding: 1.2rem 1rem;
+	font-size: 1.2rem;
+}
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container px-4 px-lg-5">
-		<a class="navbar-brand" href="#!">Start Bootstrap</a>
+		<a class="navbar-brand" href="${pageContext.request.contextPath}"><strong>GARDENIA</strong></a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,10 +41,10 @@
 					</ul></li>
 			</ul>
 			<div class="d-flex align-items-center">
-				<button class="btn btn-outline-dark me-3" type="submit">
+				<a href="cart" class="btn btn-outline-dark me-3" type="button">
 					<i class="bi-cart-fill me-1"></i> Cart <span
-						class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-				</button>
+					class="badge bg-dark text-white ms-1 rounded-pill">${cartItemCount}</span>
+				</a>
 				<%
 				UserModel user = (UserModel) session.getAttribute("user");
 				if (user != null) {
@@ -65,9 +70,11 @@
 						</div>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="profile"> <i
-							class="fas fa-user"></i> Thông tin cá nhân
-						</a> <a class="dropdown-item" href="profile/edit"> <i
-							class="fas fa-edit"></i> Chỉnh sửa thông tin
+							class="fas fa-user"></i> Thông Tin Cá Nhân
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="changepass"> <i
+							class="fas fa-user"></i> Đổi mật khẩu
 						</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="logout"> <i
@@ -83,7 +90,6 @@
 				<%
 				}
 				%>
-
 			</div>
 		</div>
 	</div>
