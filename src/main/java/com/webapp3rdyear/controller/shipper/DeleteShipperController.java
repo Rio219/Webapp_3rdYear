@@ -9,25 +9,19 @@ import java.io.IOException;
 
 import com.webapp3rdyear.dao.UsersDAO;
 
-/**
- * Servlet implementation class DeleteShipperController
- */
+
 @WebServlet(urlPatterns = {"/deleteshipper"})
 
 public class DeleteShipperController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public DeleteShipperController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("sid");
 		UsersDAO dao = new UsersDAO();

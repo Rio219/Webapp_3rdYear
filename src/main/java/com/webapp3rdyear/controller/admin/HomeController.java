@@ -12,9 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/Admin"})
 public class HomeController extends HttpServlet {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Override

@@ -11,11 +11,9 @@ import com.webapp3rdyear.dao.UsersDAO;
 import com.webapp3rdyear.enity.Accounts;
 import com.webapp3rdyear.enity.Users;
 
-/**
- * Servlet implementation class AddSellerController
- */
 
 @WebServlet(urlPatterns = {"/sellers/add"})
+
 
 public class AddSellerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
