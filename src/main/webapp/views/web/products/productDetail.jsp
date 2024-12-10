@@ -92,7 +92,10 @@
 					<a href="javascript:void(0);" onclick="toggleSection('review')">Review</a>
 				</div>
 				<div class="col-md-2 offset-md-4">
-					<a href="#">ADD TO CART</a>
+					<form action="${pageContext.request.contextPath}/productDetail/addtocart" method="post">
+						<input type="hidden" name="productId" value="${product.productId}">
+						<button type="submit" class="btn btn-primary">ADD TO CART</button>
+					</form>
 				</div>
 				<div class="col-md-2">
 					<button type="button" class="btn btn-outline-warning">

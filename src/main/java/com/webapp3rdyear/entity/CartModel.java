@@ -11,7 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "CART")
+@Table(name = "cart")
 public class CartModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
